@@ -1,0 +1,57 @@
+<!doctype html>
+
+<html ng-app="nodeTodo">
+
+<head>
+  <title>Node/Angular Todo App</title>
+
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+  <style>
+    body {padding-top: 50px;}
+    #todo-list {margin-bottom: 30px;}
+    h1 {margin: 0; font-size: 46px !important;}
+  </style>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+  <script src="javascripts/core.js"></script>
+</head>
+  
+<body ng-controller="appController">
+
+  <div class="container">
+    <div class="jumbotron text-center">
+
+      <h1>Node.js To-do List <span class="label label-info">{{ todos.length }}</span></h1>
+
+    </div>
+  </div>
+  
+  <div id="todo-list" class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+      <div class="checkbox" ng-repeat="todo in todos">
+
+        <label>
+          <input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }}
+        </label>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="todo-form" class="row">
+    <div class="col-sm-8 col-sm-offset-2 text-center">
+          
+      <form>
+        <div class="form-group">
+          <input type="text" class="form-control input-lg text-center" placeholder="Eg: Kill Hai and then have a mai-tai" ng-model="formData.text">
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
+      </form>
+
+    </div>
+  </div>
+</body>
+
+
+</html>
